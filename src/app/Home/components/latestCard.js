@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import cover from '../../api/cover'
 // src/app/components/MangaCard.js
-export default function MangaCard({ manga }) {
+export default function LatestCard({ manga }) {
 
 // console.log(manga)
 
@@ -42,7 +42,7 @@ export default function MangaCard({ manga }) {
 
     return (
       <motion.div 
-        className="bg-white border rounded-lg shadow-md overflow-hidden"
+        className="bg-white border rounded-lg shadow-md  w-1/6"
         whileHover={{scale : 1.05}}
         // animate={{opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
 
@@ -52,10 +52,10 @@ export default function MangaCard({ manga }) {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }} // Réinitialise l'animation à chaque fois que la carte entre dans la vue
       >
-        <img src={`https://uploads.mangadex.org/covers/${manga.id}/${mangaCover?.attributes?.fileName}`} alt={manga.attributes.title.en} className="w-full h-64 object-cover" />
+        <img src={`https://uploads.mangadex.org/covers/${manga.id}/${mangaCover?.attributes?.fileName}`} alt={manga.attributes.title.en} className="w-full h-64 boject-cover rounded-t-lg" />
         < div className="p-4">
           <span>{manga.type}</span>
-          <h2 className="text-lg font-bold">{manga.attributes.title.en}</h2>
+          <h2 className="text-lg font-bold max-w-[250px]">{manga.attributes.title.en}</h2>
           <p className="text-gray-600">{manga.author}</p>
         </div>
       </motion.div>
